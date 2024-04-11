@@ -7,7 +7,7 @@ resource "aws_api_gateway_rest_api" "main" {
     }
     paths = {
       "/path1" = {
-        get = {
+        post = {
           x-amazon-apigateway-integration = {
             httpMethod           = "POST"
             payloadFormatVersion = "1.0"
@@ -19,7 +19,7 @@ resource "aws_api_gateway_rest_api" "main" {
     }
   })
 
-  name = "example"
+  name = "main"
 
   endpoint_configuration {
     types = ["REGIONAL"]

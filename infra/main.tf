@@ -30,7 +30,6 @@ module "rds" {
   source           = "./modules/rds"
   db_sbg_name      = module.network.db_sbg_name
   sg_rds_source_id = module.network.sg_rds_source_id
-  sg_rds_target_id = module.network.sg_rds_target_id
   db_ports         = var.db_ports
   app_name         = var.app_name
   db_name          = var.db_name
@@ -39,13 +38,15 @@ module "rds" {
 }
 
 module "lambda" {
-  source          = "./modules/lambda"
-  iam_role_lambda = module.iam.iam_role_lambda
-  app_name        = var.app_name
-  db_address      = module.rds.db_address
-  db_name         = var.db_name
-  db_username     = var.db_username
-  db_password     = var.db_password
+  source                      = "./modules/lambda"
+  iam_role_lambda             = module.iam.iam_role_lambda
+  app_name                    = var.app_name
+  db_address                  = module.rds.db_address
+  db_name                     = var.db_name
+  db_username                 = var.db_username
+  db_password                 = var.db_password
+  sg_lambda_id                = module.network.sg_lambda_id
+  subnet_private_subnet_1a_id = module.network.subnet_private_subnet_1a_id
 }
 
 module "apigateway" {
