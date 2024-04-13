@@ -47,11 +47,13 @@ module "lambda" {
   db_password                 = var.db_password
   sg_lambda_id                = module.network.sg_lambda_id
   subnet_private_subnet_1a_id = module.network.subnet_private_subnet_1a_id
+  api_execution_arn           = module.apigateway.api_execution_arn
 }
 
 module "apigateway" {
   source            = "./modules/apigateway"
   lambda_invoke_arn = module.lambda.lambda_invoke_arn
+  iam_role_lambda   = module.iam.iam_role_lambda
 }
 
 module "s3" {

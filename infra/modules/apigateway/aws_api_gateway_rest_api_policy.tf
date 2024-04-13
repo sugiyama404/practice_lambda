@@ -2,7 +2,7 @@ data "aws_iam_policy_document" "api_gateway_policy" {
   statement {
     effect = "Allow"
     principals {
-      type        = "*"
+      type        = "AWS"
       identifiers = ["*"]
     }
     actions   = ["execute-api:Invoke"]

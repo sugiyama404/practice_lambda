@@ -13,6 +13,7 @@ resource "aws_api_gateway_rest_api" "main" {
             payloadFormatVersion = "1.0"
             type                 = "AWS_PROXY"
             uri                  = "${var.lambda_invoke_arn}"
+            credentials          = "${var.iam_role_lambda}"
           }
         }
       }
@@ -23,18 +24,6 @@ resource "aws_api_gateway_rest_api" "main" {
 
   endpoint_configuration {
     types = ["REGIONAL"]
-  }
-}
-
-resource "aws_api_gateway_deployment" "main" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-
-  triggers = {
-    redeployment = sha1(jsonencode(aws_api_gateway_rest_api.main.body))
-  }
-
-  lifecycle {
-    create_before_destroy = true
   }
 }
 

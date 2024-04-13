@@ -11,7 +11,7 @@ resource "aws_lambda_function" "main" {
   role             = var.iam_role_lambda
   handler          = "index.py"
   source_code_hash = data.archive_file.lambda.output_base64sha256
-  timeout          = 10
+  timeout          = 30
   runtime          = "python3.9"
 
   vpc_config {
