@@ -41,7 +41,10 @@ def lambda_handler(event, context):
         cur.execute(sql, (username, email, password,))
         return  {
         'statusCode': 200,
-        'body': json.dumps({})
+        'body': json.dumps({}),
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+        },
         }
     except:
         import traceback
