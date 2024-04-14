@@ -37,6 +37,7 @@ module "rds" {
   db_password      = var.db_password
 }
 
+# lambda
 module "lambda" {
   source                      = "./modules/lambda"
   iam_role_lambda             = module.iam.iam_role_lambda
@@ -47,15 +48,17 @@ module "lambda" {
   db_password                 = var.db_password
   sg_lambda_id                = module.network.sg_lambda_id
   subnet_private_subnet_1a_id = module.network.subnet_private_subnet_1a_id
-  api_execution_arn           = module.apigateway.api_execution_arn
+  subnet_public_subnet_1a_id  = module.network.subnet_public_subnet_1a_id
 }
 
+# apigateway
 module "apigateway" {
   source            = "./modules/apigateway"
   lambda_invoke_arn = module.lambda.lambda_invoke_arn
   iam_role_lambda   = module.iam.iam_role_lambda
 }
 
+# s3
 module "s3" {
   source   = "./modules/s3"
   app_name = var.app_name

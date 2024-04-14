@@ -1,6 +1,6 @@
 # SecurityGroupRules for lambda
 resource "aws_security_group_rule" "lambda_in_tcp3306" {
-  type              = "ingress"
+  type              = "egress"
   from_port         = var.db_ports[0].internal
   to_port           = var.db_ports[0].external
   protocol          = var.db_ports[0].protocol
@@ -9,7 +9,7 @@ resource "aws_security_group_rule" "lambda_in_tcp3306" {
 }
 
 resource "aws_security_group_rule" "lambda_out_tcp" {
-  type              = "egress"
+  type              = "ingress"
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
