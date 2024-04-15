@@ -32,10 +32,24 @@ API Gatewayは、生成されたレスポンスをクライアントに返しま
 + 高可用性: 冗長構成により、高い可用性を提供します。
 
 # 起動方法
-以下のコードを実行すると実行されます。
+1. 以下のコードを実行すると実行されます。
 ```
 bin/terraform_apply
 ```
+
+2. API Gateway エンドポイントURLの取得
+    1. AWS マネジメントコンソールで Amazon API Gateway サービスに移動します。
+    2. API 一覧から、目的のAPIを選択します。
+    3. Actions メニューから Deploy API を選択します。
+    4. Deployment ボタンをクリックして、デプロイメントを実行します。
+    5. Deployment 画面が表示されたら、Invoke URL をコピーします。
+
+3. Resources/index.html の編集とアップロード
+
+    1. ローカル環境で resources/index.html ファイルを開きます。
+    2. [endpoint url] の部分を、1. API Gateway エンドポイントURLの取得 でコピーしたURLに置き換えます。
+    3. 変更を保存します。
+    4. S3 バケットに resources/index.html ファイルをアップロードします。
 
 # 停止方法
 以下のコードを実行すると実行されます。
