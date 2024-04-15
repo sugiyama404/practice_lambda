@@ -49,6 +49,7 @@ module "lambda" {
   sg_lambda_id                = module.network.sg_lambda_id
   subnet_private_subnet_1a_id = module.network.subnet_private_subnet_1a_id
   subnet_public_subnet_1a_id  = module.network.subnet_public_subnet_1a_id
+  api_execution_arn           = module.apigateway.api_execution_arn
 }
 
 # apigateway

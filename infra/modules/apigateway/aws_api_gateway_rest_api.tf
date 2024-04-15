@@ -18,7 +18,6 @@ resource "aws_api_gateway_rest_api" "main" {
   })
 
   name = "main"
-  # depends_on = [var.lambda_invoke_arn]
 
   endpoint_configuration {
     types = ["REGIONAL"]
