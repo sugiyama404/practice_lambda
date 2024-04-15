@@ -43,10 +43,9 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps({}),
         'headers': {
-            'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': '*',
-            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
         },
         }
     except:
@@ -56,7 +55,10 @@ def lambda_handler(event, context):
         return {
           'statusCode' : 500,
           'headers' : {
-            'context-type' : 'text/json'
+            'context-type' : 'text/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET'
           },
           'body' : json.dumps({
             'error' : '内部エラーが発生しました'
