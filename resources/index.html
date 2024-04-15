@@ -16,9 +16,9 @@
 
             $.ajax({
                 'type': 'POST',
-                'url': 'https://【 APIGatewayエンドポイント 】.execute-api.ap-northeast-1.amazonaws.com/writedynamodb',
-                'contentType': 'text/plain',
-                'data': JSON.stringify(data)
+                'url': 'https://zdpes1a3l6.execute-api.ap-northeast-1.amazonaws.com/stage',
+                'contentType': 'application/json',
+                'data': JSON.stringify(data),
             }).done(function (data, textStatus, jqXHR) {
                 // 成功
                 alert('送信完了しました');
