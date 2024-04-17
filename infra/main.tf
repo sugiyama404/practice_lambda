@@ -52,15 +52,20 @@ module "lambda" {
   api_execution_arn           = module.apigateway.api_execution_arn
 }
 
+# s3
+module "s3" {
+  source   = "./modules/s3"
+  app_name = var.app_name
+  region   = var.region
+}
+
 # apigateway
 module "apigateway" {
   source            = "./modules/apigateway"
   lambda_invoke_arn = module.lambda.lambda_invoke_arn
   iam_role_lambda   = module.iam.iam_role_lambda
-}
-
-# s3
-module "s3" {
-  source   = "./modules/s3"
-  app_name = var.app_name
+  s3_uri            = module.s3.s3_uri
+  s3_url            = module.s3.s3_url
+  region            = var.region
+  app_name          = var.app_name
 }
