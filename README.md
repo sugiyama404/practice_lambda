@@ -66,6 +66,17 @@ bin/terraform_destroy
 # 結論
 このサーバレスアーキテクチャは、スケーラブルで、コスト効率が高く、運用管理が容易なソリューションを提供します。 ただし、複雑性、ベンダーロックイン、パフォーマンスなどの制約事項もあります。
 
+# Qiita記事
+
+技術詳細はQiitaに記載しています。
+
+[サーバレスアーキテクチャによる静的ウェブサイト構築](https://qiita.com/sugiyama404/items/8a53886b7c6caf9b3ab9)
+
+# 注意事項
+
+このプロジェクトは、テスト目的でのみ使用してください。 本番環境で使用する場合は、セキュリティ要件を満たすように設定してください。
+
+
 # 参考資料
 + Amazon S3: https://aws.amazon.com/s3/
 + Amazon API Gateway: https://aws.amazon.com/apigateway/
