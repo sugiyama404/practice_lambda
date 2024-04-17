@@ -1,5 +1,9 @@
 # サーバレスアーキテクチャによる静的ウェブサイト構築
 
+<p align="center">
+  <img src="sources/aws.png" alt="animated" width="400">
+</p>
+
 ![Git](https://img.shields.io/badge/GIT-E44C30?logo=git&logoColor=white)
 ![gitignore](https://img.shields.io/badge/gitignore%20io-204ECF?logo=gitignoredotio&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?logo=amazon-aws&logoColor=white)
