@@ -6,6 +6,13 @@ resource "aws_api_gateway_rest_api" "main" {
       version = "1.0"
     }
     paths = {
+      get = {
+        x-amazon-apigateway-integration = {
+          payloadFormatVersion = "1.0"
+          type                 = "HTTP_PROXY"
+          uri                  = "${var.s3_url}"
+        }
+      }
       post = {
         x-amazon-apigateway-integration = {
           payloadFormatVersion = "1.0"

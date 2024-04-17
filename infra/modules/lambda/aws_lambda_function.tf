@@ -14,7 +14,6 @@ resource "aws_lambda_function" "main" {
   source_code_hash = data.archive_file.lambda.output_base64sha256
   timeout          = 30
   runtime          = "python3.9"
-  # layers           = [aws_lambda_layer_version.pymysql.arn]
 
   vpc_config {
     subnet_ids         = [var.subnet_public_subnet_1a_id]
