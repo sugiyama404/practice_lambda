@@ -43,18 +43,18 @@
 bin/terraform_apply
 ```
 
-3. Resources/index.html のアップロード
+2. Resources/index.html のアップロード
 
     1. ローカル環境で resources/index.html ファイルを開きます。
     2. S3 バケットに resources/index.html ファイルをアップロードします。
 
-2. API Gateway エンドポイントURLの取得
+3. API Gateway エンドポイントURLの取得
     1. AWS マネジメントコンソールで Amazon API Gateway サービスに移動します。
     2. API 一覧から、目的のAPIを選択します。
     3. Actions メニューから ステージ を選択します。
     4. ステージの詳細 画面が表示されたら、 URL をコピーします。
 
-2. URLにアクセス
+4. URLにアクセス
     1. ブラウザを開き、先ほどコピーしたURLにアクセスします。
 
 # 停止方法
